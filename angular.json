@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "mi-primera-app-angular": {
+    "angular-formulario": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -23,10 +23,6 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets"
               }
             ],
             "styles": [
@@ -61,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mi-primera-app-angular:build:production"
+              "buildTarget": "angular-formulario:build:production"
             },
             "development": {
-              "buildTarget": "mi-primera-app-angular:build:development"
+              "buildTarget": "angular-formulario:build:development"
             }
           },
           "defaultConfiguration": "development"

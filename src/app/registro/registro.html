@@ -1,0 +1,58 @@
+<div class="container">
+  <h1 [ngStyle]="{ 'color': registroForm.valid ? 'green' : 'black' }">Formulario de Registro</h1>
+  <p class="descripcion">Complete el siguiente formulario para registrarse. Los campos marcados con * son obligatorios.</p>
+
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" class="formulario">
+    <div class="campo" [ngClass]="{ 'invalido': isInvalid('nombre'), 'valido': isValid('nombre') }">
+      <label for="nombre">Nombre *</label>
+      <input
+        type="text"
+        id="nombre"
+        formControlName="nombre"
+        placeholder="Ingrese su nombre"
+      />
+      <div class="errores" *ngIf="isInvalid('nombre')">
+        <ul>
+          <li *ngFor="let error of getErrorMessages('nombre')">{{ error }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="campo" [ngClass]="{ 'invalido': isInvalid('email'), 'valido': isValid('email') }">
+      <label for="email">Email *</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Ingrese su email"
+      />
+      <div class="errores" *ngIf="isInvalid('email')">
+        <ul>
+          <li *ngFor="let error of getErrorMessages('email')">{{ error }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="campo" [ngClass]="{ 'invalido': isInvalid('mensaje'), 'valido': isValid('mensaje') }">
+      <label for="mensaje">Mensaje</label>
+      <textarea
+        id="mensaje"
+        formControlName="mensaje"
+        placeholder="Ingrese su mensaje (opcional)"
+        rows="4"
+      ></textarea>
+      <div class="errores" *ngIf="isInvalid('mensaje')">
+        <ul>
+          <li *ngFor="let error of getErrorMessages('mensaje')">{{ error }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registroForm.invalid" class="btn-enviar">Enviar</button>
+  </form>
+
+  <div class="mensaje-exito" *ngIf="submitted">
+    <h2>¡Formulario enviado correctamente!</h2>
+    <p>Gracias por registrarse.</p>
+  </div>
+</div>
