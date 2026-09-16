@@ -53,17 +53,7 @@ Formulario enviado: {nombre: 'Juan Pérez', email: 'juan@example.com', mensaje: 
 
 ## Capturas de Pantalla
 
-### Formulario con Errores de Validación
-![Formulario con errores](screenshots/formulario-errores.png)
-*Campos resaltados en rojo con mensajes de error listados mediante \`*ngFor\``
-
-### Formulario Válido
-![Formulario válido](screenshots/formulario-valido.png)
-*Título en verde, campos con borde verde, botón habilitado*
-
-### Formulario Enviado
-![Formulario enviado](screenshots/formulario-enviado.png)
-*Mensaje de éxito mostrado con \`*ngIf\` tras envío exitoso*
+![alt text](image.png)
 
 ## Créditos del Autor
 
