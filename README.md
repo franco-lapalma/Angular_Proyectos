@@ -1,117 +1,129 @@
-# Mi Primera App en Angular
+# Angular Productos - Gestión y Visualización de Datos con Pipes
 
 ## Descripción del Proyecto
 
-Este proyecto es una aplicación Angular básica creada como parte del **Módulo 1 - Unidad 1: "Mi primera app en Angular"** del curso "Conociendo Angular". La aplicación demuestra los conceptos fundamentales de Angular incluyendo:
+Este proyecto es una aplicación Angular que demuestra la gestión de productos mediante servicios, la inyección de dependencias, el uso de pipes estándar (currency, date) y la creación de un pipe personalizado (descuento). La aplicación permite listar, agregar y eliminar productos de forma interactiva.
 
-- Creación de un proyecto con Angular CLI
-- Estructura de archivos y carpetas principales
-- Componentes standalone (Angular 17+)
-- Interpolación de datos en plantillas
-- Uso de signals para reactividad
-- Carga de assets (imágenes)
+## Características Implementadas
 
-## Estructura del Proyecto
+### Servicio Productos
+- **getProductos()**: Obtiene la lista completa de productos
+- **addProducto()**: Agrega un nuevo producto a la lista
+- **deleteProducto()**: Elimina un producto por su ID
+- Los datos se almacenan en un array local simulado con 5 productos iniciales
 
-```
-mi-primera-app-angular/
-├── public/                 # Archivos estáticos públicos (favicon, etc.)
-│   └── favicon.ico
-├── src/
-│   ├── assets/             # Carpeta assets para imágenes y recursos
-│   │   └── angular-logo.svg    # Imagen agregada desde assets
-│   ├── app/                # Código principal de la aplicación
-│   │   ├── app.ts          # Componente principal (standalone)
-│   │   ├── app.html        # Plantilla del componente
-│   │   ├── app.css         # Estilos del componente
-│   │   ├── app.config.ts   # Configuración de la aplicación
-│   │   └── app.spec.ts     # Tests unitarios
-│   ├── index.html          # HTML principal
-│   ├── main.ts             # Punto de entrada (bootstrap)
-│   └── styles.css          # Estilos globales
-├── angular.json            # Configuración de Angular CLI
-├── package.json            # Dependencias y scripts
-└── README.md               # Este archivo
-```
+### Componente ListaProductos
+- Inyección del servicio `Productos` mediante inyección de dependencias
+- Carga inicial de productos en `ngOnInit`
+- Formulario reactivo para agregar nuevos productos
+- Tabla con visualización de productos usando pipes
+- Botones para eliminar productos
+- Mensaje dinámico cuando la lista está vacía
 
-## Archivos Principales y su Función
+### Pipes Estándar
+- **currency**: Formatea precios en Euros (EUR)
+- **date**: Formatea la fecha de alta en formato dd/MM/yyyy
 
-| Archivo | Descripción |
-|---------|-------------|
-| `src/app/app.ts` | Componente principal standalone que define la lógica y datos reactivos (signals) |
-| `src/app/app.html` | Plantilla HTML con interpolación (`{{ }}`) para mostrar datos dinámicos |
-| `src/app/app.css` | Estilos CSS del componente principal |
-| `src/app/app.config.ts` | Configuración de providers de la aplicación (error handlers, etc.) |
-| `src/main.ts` | Punto de entrada que hace bootstrap de la aplicación |
-| `src/index.html` | HTML base donde se monta el componente `<app-root>` |
-| `public/` | Carpeta para archivos estáticos públicos (favicon.ico) |
-| `src/assets/` | Carpeta para assets de la aplicación (imágenes, fuentes, etc.) |
+### Pipe Personalizado: descuento
+- Recibe el precio base y un porcentaje de descuento
+- Calcula y devuelve el precio final con descuento aplicado
+- Valida que el porcentaje esté entre 0 y 100
 
-## Instrucciones de Instalación y Ejecución
+## Instalación y Ejecución
 
 ### Prerrequisitos
 - Node.js (versión 18 o superior)
 - npm (incluido con Node.js)
 - Angular CLI (`npm install -g @angular/cli`)
 
-### Pasos para ejecutar el proyecto
+### Pasos para ejecutar
 
-1. **Clonar el repositorio:**
+1. **Clonar el repositorio**
    ```bash
    git clone <url-del-repositorio>
-   cd mi-primera-app-angular
+   cd angular-productos
    ```
 
-2. **Instalar dependencias:**
+2. **Instalar dependencias**
    ```bash
    npm install
    ```
 
-3. **Ejecutar en modo desarrollo:**
+3. **Ejecutar la aplicación en modo desarrollo**
    ```bash
    ng serve
    ```
-   La aplicación estará disponible en `http://localhost:4200`
 
-4. **Construir para producción:**
-   ```bash
-   ng build
-   ```
-   Los archivos de producción se generarán en `dist/mi-primera-app-angular/`
+4. **Abrir en el navegador**
+   Navega a `http://localhost:4200/`
+
+### Compilar para producción
+```bash
+ng build
+```
+Los archivos compilados se generarán en el directorio `dist/angular-productos/`.
+
+## Estructura del Proyecto
+
+```
+src/
+├── app/
+│   ├── productos.ts              # Servicio y interface Producto
+│   ├── descuento-pipe.ts         # Pipe personalizado descuento
+│   ├── lista-productos/          # Componente principal
+│   │   ├── lista-productos.ts    # Lógica del componente
+│   │   ├── lista-productos.html  # Plantilla con pipes e interactividad
+│   │   ├── lista-productos.css   # Estilos
+│   │   └── lista-productos.spec.ts
+│   ├── app.ts                    # Componente raíz
+│   ├── app.config.ts             # Configuración de la aplicación
+│   └── app.css                   # Estilos globales
+└── main.ts                       # Punto de entrada
+```
 
 ## Capturas de Pantalla
-![alt text](image.png)
 
-### Vista Principal de la Aplicación
-La aplicación muestra:
-- Título personalizado: "Mi Primera App en Angular"
-- Información personal (nombre y motivo para aprender Angular)
-- Sección de práctica con interpolación mostrando variables reactivas
-- Imagen cargada desde la carpeta `src/assets/` (assets)
-- Enlaces de referencia a documentación oficial
+### Lista de Productos Cargada
+La aplicación muestra una tabla con 5 productos iniciales al cargar:
+- ID, Nombre, Precio Original, Precio con Descuento, Fecha de Alta, Acciones
 
-> **Nota:** Para ver la aplicación en funcionamiento, ejecuta `ng serve` y abre `http://localhost:4200` en tu navegador.
+### Aplicación de Pipes Estándar
+- **Currency Pipe**: Los precios se muestran en formato €1.234,56
+- **Date Pipe**: Las fechas se muestran en formato dd/MM/yyyy (ej: 15/01/2024)
 
-## Créditos del Autor
+### Pipe Personalizado Descuento en Funcionamiento
+- El campo "Descuento a aplicar (%)" permite cambiar el porcentaje
+- La columna "Precio con Descuento" se actualiza en tiempo real
+- Ejemplo: Precio 1200,50€ con 10% descuento = 1.080,45€
 
-- **Nombre:** Franco Lapalma
-- **Curso:** Desarrollo con Angular
-- **Módulo:** 1 - Unidad 1: conociendo angular
-- **Fecha:** Septiembre 2026
+### Comportamiento al Agregar/Eliminar
+- **Agregar**: Completa el formulario y presiona "Agregar" → El producto aparece en la tabla
+- **Eliminar**: Presiona "Eliminar" en cualquier fila → El producto se remueve de la tabla
+- **Lista vacía**: Al eliminar todos los productos, aparece mensaje "No hay productos en la lista..."
+
+## Créditos
+
+**Autor**: Franco Lapalma
+**Curso**: Desarrollo en Angular
+**Unidad**: Módulo 1 - Unidad 3  
+**Tema**: Gestión y visualización de datos con pipes
 
 ## Bibliografía y Fuentes
 
 ### Libros
 - Freeman, A. *Pro Angular 9*. 6ª ed. Apress; 2020.
 
-### Documentación Oficial
-- Angular. (s.f.). **Welcome to the Angular tutorial**. https://angular.dev/tutorials/learn-angular
-- Angular. (s.f.). **The Angular CLI**. https://angular.dev/tools/cli
-- Angular. (s.f.). **Anatomy of a component**. https://angular.dev/guide/components
+### Documentación Oficial Angular
+- Angular. *Understanding dependency injection*. https://angular.dev/guide/di/dependency-injection
+- Angular. *Welcome to the Angular tutorial*. https://angular.dev/tutorials/learn-angular
+- Angular. *What is Angular?*. https://angular.dev/overview
+- Angular. *Pipes*. https://angular.dev/guide/pipes
+- Angular. *Services*. https://angular.dev/guide/services
 
-### Imágenes
-- Logo Angular: Creado para este proyecto (SVG simple en `src/assets/angular-logo.svg`)
+### Recursos Adicionales
+- Angular CLI Documentation: https://angular.dev/tools/cli
+- TypeScript Documentation: https://www.typescriptlang.org/docs/
 
 ## Licencia
 
-Este proyecto es solo para fines educativos como parte del curso "Conociendo Angular".
+Proyecto educativo para fines académicos.
