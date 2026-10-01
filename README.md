@@ -69,14 +69,9 @@ Pasos:
 2. Vercel → Add New → Project → Import `Angular_Proyectos` (branch `Tarea-N°4`)
 3. Deploy → verificar `/`, `/usuarios`, `/productos`, `/productos/2` y refresh (requiere rewrite a `index.html`).
 
-Enlace publicado: *pendiente — pegar aquí la URL de Vercel, ej. https://angular-proyectos-xxx.vercel.app*
+Enlace publicado: https://angular-proyectos-3nhrjfacq-franco-lapalmas-projects.vercel.app/
 
-## Capturas (pendiente tomar con `npx ng serve`)
-- `docs/captura-inicio.png` — `/`
-- `docs/captura-usuarios.png` — `/usuarios`
-- `docs/captura-productos.png` — `/productos`
-- `docs/captura-detalle.png` — `/productos/2`
-- `docs/captura-localstorage.png` — DevTools `ultimoModulo`
+Rutas verificadas en producción: `/`, `/usuarios`, `/productos`, `/productos/2` (con refresh, gracias al rewrite a `index.html`).
 
 ## Créditos
 - Autor: Franco Lapalma — Curso: *Angular avanzado* — Unidad: *Módulo 1 Unidad 4*
