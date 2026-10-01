@@ -1,0 +1,17 @@
+<div class="container">
+  <nav class="breadcrumb">
+    <a routerLink="/">Inicio</a> / <span>Usuarios</span>
+  </nav>
+  <h2>Módulo Usuarios (Lazy Loading)</h2>
+  <p>Este módulo se carga de forma perezosa al visitar <code>/usuarios</code>.</p>
+  <div class="grid">
+    @for (u of usuarios; track u.id) {
+      <div class="card">
+        <h3>{{ u.nombre }}</h3>
+        <p>{{ u.email }}</p>
+        <span class="badge">{{ u.rol }}</span>
+      </div>
+    }
+  </div>
+  <a routerLink="/productos" class="btn">Ir a Productos</a>
+</div>

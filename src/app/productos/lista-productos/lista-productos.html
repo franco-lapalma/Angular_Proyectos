@@ -1,0 +1,17 @@
+<div class="container">
+  <nav class="breadcrumb">
+    <a routerLink="/">Inicio</a> / <span>Productos</span>
+  </nav>
+  <h2>Módulo Productos (Lazy Loading)</h2>
+  <p>Haz clic en un producto para ver la ruta dinámica <code>/productos/:id</code>.</p>
+  <div class="grid">
+    @for (p of productos; track p.id) {
+      <div class="card">
+        <h3>{{ p.nombre }}</h3>
+        <p>${{ p.precio }}</p>
+        <a [routerLink]="['/productos', p.id]" class="btn">Ver detalle {{ p.id }}</a>
+      </div>
+    }
+  </div>
+  <a routerLink="/usuarios" class="btn secondary">Ir a Usuarios</a>
+</div>

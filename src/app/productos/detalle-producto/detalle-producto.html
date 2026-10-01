@@ -1,0 +1,14 @@
+<div class="container">
+  <nav class="breadcrumb">
+    <a routerLink="/">Inicio</a> / <a routerLink="/productos">Productos</a> / <span>{{ id }}</span>
+  </nav>
+  @if (producto) {
+    <h2>Detalle Producto {{ producto.id }}: {{ producto.nombre }}</h2>
+    <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+    <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+    <p><strong>ID de ruta (:id):</strong> {{ id }}</p>
+  } @else {
+    <h2>Producto no encontrado (id={{ id }})</h2>
+  }
+  <a routerLink="/productos" class="btn">Volver a Productos</a>
+</div>

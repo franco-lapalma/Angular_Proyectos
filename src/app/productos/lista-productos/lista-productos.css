@@ -1,0 +1,6 @@
+.container{max-width:900px;margin:0 auto;padding:2rem;font-family:'Segoe UI',sans-serif}
+.breadcrumb{margin-bottom:1rem;color:#666}.breadcrumb a{color:#3498db;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:1rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.btn{display:inline-block;background:#3498db;color:#fff;padding:.6rem 1.2rem;border-radius:4px;text-decoration:none;margin-top:.5rem}
+.btn.secondary{background:#7f8c8d}

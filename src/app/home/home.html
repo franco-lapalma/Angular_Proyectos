@@ -1,0 +1,33 @@
+<div class="home-container">
+  <header>
+    <h1>Angular Modular Routing</h1>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/usuarios">Usuarios</a></li>
+        <li><a routerLink="/productos">Productos</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h2>Bienvenido a la Aplicación Modular</h2>
+      <p>Esta aplicación demuestra el uso de módulos, lazy loading, rutas dinámicas y localStorage en Angular.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Módulo Usuarios</h3>
+          <p>Gestión de usuarios con carga perezosa (lazy loading)</p>
+          <a routerLink="/usuarios" class="btn">Ir a Usuarios</a>
+        </div>
+        <div class="card">
+          <h3>Módulo Productos</h3>
+          <p>Catálogo de productos con rutas dinámicas (/productos/:id)</p>
+          <a routerLink="/productos" class="btn">Ir a Productos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 - Angular Avanzado Routing - Módulo 1 Unidad 4</p>
+  </footer>
+</div>
