@@ -1,117 +1,147 @@
-# Mi Primera App en Angular
+# Rick & Morty App — TP Final Angular
 
-## Descripción del Proyecto
+Aplicación web multisitio desarrollada con **Angular 18+** que consume la **Rick and Morty API** para mostrar personajes, sus detalles, ubicaciones y episodios.
 
-Este proyecto es una aplicación Angular básica creada como parte del **Módulo 1 - Unidad 1: "Mi primera app en Angular"** del curso "Conociendo Angular". La aplicación demuestra los conceptos fundamentales de Angular incluyendo:
+## 🚀 Demo
 
-- Creación de un proyecto con Angular CLI
-- Estructura de archivos y carpetas principales
-- Componentes standalone (Angular 17+)
-- Interpolación de datos en plantillas
-- Uso de signals para reactividad
-- Carga de assets (imágenes)
+![Rick & Morty App](https://img.shields.io/badge/Angular-18+-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.4+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![RxJS](https://img.shields.io/badge/RxJS-7.8+-B7178C?style=for-the-badge&logo=rxjs&logoColor=white)
 
-## Estructura del Proyecto
+## ✨ Características
 
-```
-mi-primera-app-angular/
-├── public/                 # Archivos estáticos públicos (favicon, etc.)
-│   └── favicon.ico
-├── src/
-│   ├── assets/             # Carpeta assets para imágenes y recursos
-│   │   └── angular-logo.svg    # Imagen agregada desde assets
-│   ├── app/                # Código principal de la aplicación
-│   │   ├── app.ts          # Componente principal (standalone)
-│   │   ├── app.html        # Plantilla del componente
-│   │   ├── app.css         # Estilos del componente
-│   │   ├── app.config.ts   # Configuración de la aplicación
-│   │   └── app.spec.ts     # Tests unitarios
-│   ├── index.html          # HTML principal
-│   ├── main.ts             # Punto de entrada (bootstrap)
-│   └── styles.css          # Estilos globales
-├── angular.json            # Configuración de Angular CLI
-├── package.json            # Dependencias y scripts
-└── README.md               # Este archivo
-```
+### 📋 Páginas Requeridas
+- **Inicio** (`/`) — Landing page con hero animado, estadísticas y características
+- **Personajes** (`/personajes`) — Listado con búsqueda, filtros y paginación
+- **Detalle de Personaje** (`/personajes/:id`) — Vista dinámica con información completa
+- **Nosotros** (`/nosotros`) — Información técnica del proyecto
+- **Contacto** (`/contacto`) — Formulario validado con feedback visual
 
-## Archivos Principales y su Función
+### 🔧 Funcionalidades Implementadas
+- **Routing** con rutas estáticas y dinámicas (`/personajes/:id`)
+- **Consumo de API** mediante servicio inyectable (`HttpClient`)
+- **Búsqueda en tiempo real** con debounce (300ms)
+- **Filtros múltiples** combinables: estado, género, especie
+- **Paginación client-side** tras carga completa en background
+- **Estados de carga** con skeletons animados
+- **Diseño responsive** mobile-first (breakpoints: 480px, 768px, 1024px)
+- **Accesibilidad** (ARIA labels, navegación teclado, contraste WCAG AA)
+- **Componentización** clara: header, footer, character-card, páginas
 
-| Archivo | Descripción |
-|---------|-------------|
-| `src/app/app.ts` | Componente principal standalone que define la lógica y datos reactivos (signals) |
-| `src/app/app.html` | Plantilla HTML con interpolación (`{{ }}`) para mostrar datos dinámicos |
-| `src/app/app.css` | Estilos CSS del componente principal |
-| `src/app/app.config.ts` | Configuración de providers de la aplicación (error handlers, etc.) |
-| `src/main.ts` | Punto de entrada que hace bootstrap de la aplicación |
-| `src/index.html` | HTML base donde se monta el componente `<app-root>` |
-| `public/` | Carpeta para archivos estáticos públicos (favicon.ico) |
-| `src/assets/` | Carpeta para assets de la aplicación (imágenes, fuentes, etc.) |
+### 🎨 Identidad Visual
+- Tema oscuro con gradientes púrpura/rojo
+- Tipografía **Inter** (Google Fonts)
+- Animaciones CSS nativas (sin librerías externas)
+- Sistema de diseño consistente (spacing, colors, radius, shadows)
 
-## Instrucciones de Instalación y Ejecución
+## 📦 Instalación y Ejecución
 
 ### Prerrequisitos
-- Node.js (versión 18 o superior)
-- npm (incluido con Node.js)
-- Angular CLI (`npm install -g @angular/cli`)
+- Node.js 18+
+- npm 9+
 
-### Pasos para ejecutar el proyecto
+### Pasos
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone <url-del-repositorio>
-   cd mi-primera-app-angular
-   ```
+```bash
+# 1. Clonar el repositorio (rama Angular-Final)
+git clone -b Angular-Final https://github.com/franco-lapalma/Angular_Proyectos.git
+cd Angular_Proyectos
 
-2. **Instalar dependencias:**
-   ```bash
-   npm install
-   ```
+# 2. Instalar dependencias
+npm install
 
-3. **Ejecutar en modo desarrollo:**
-   ```bash
-   ng serve
-   ```
-   La aplicación estará disponible en `http://localhost:4200`
+# 3. Ejecutar en desarrollo
+npm start
+# o: ng serve
 
-4. **Construir para producción:**
-   ```bash
-   ng build
-   ```
-   Los archivos de producción se generarán en `dist/mi-primera-app-angular/`
+# 4. Abrir en navegador
+# http://localhost:4200
+```
 
-## Capturas de Pantalla
-![alt text](image.png)
+### Scripts Disponibles
 
-### Vista Principal de la Aplicación
-La aplicación muestra:
-- Título personalizado: "Mi Primera App en Angular"
-- Información personal (nombre y motivo para aprender Angular)
-- Sección de práctica con interpolación mostrando variables reactivas
-- Imagen cargada desde la carpeta `src/assets/` (assets)
-- Enlaces de referencia a documentación oficial
+| Comando | Descripción |
+|---------|-------------|
+| `npm start` | Inicia servidor de desarrollo (`ng serve`) |
+| `npm run build` | Build de producción (`ng build`) |
+| `npm run watch` | Build en modo watch |
+| `npm test` | Ejecuta tests unitarios |
 
-> **Nota:** Para ver la aplicación en funcionamiento, ejecuta `ng serve` y abre `http://localhost:4200` en tu navegador.
+## 🏗️ Estructura del Proyecto
 
-## Créditos del Autor
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── header/          # Navegación principal con routerLink
+│   │   ├── footer/          # Pie de página con links y info
+│   │   └── character-card/  # Tarjeta reutilizable de personaje
+│   ├── pages/
+│   │   ├── home/            # Landing page
+│   │   ├── characters/      # Listado + filtros + paginación
+│   │   ├── character-detail/# Vista dinámica por ID
+│   │   ├── about/           # Info técnica del proyecto
+│   │   └── contact/         # Formulario reactivo validado
+│   ├── services/
+│   │   └── rick-and-morty.service.ts  # HttpClient + API
+│   ├── interfaces/
+│   │   └── models.ts        # Tipos TypeScript (Character, Episode, etc.)
+│   ├── app.routes.ts        # Configuración de rutas
+│   ├── app.component.ts     # Componente raíz
+│   └── main.ts              # Bootstrap standalone
+├── styles.css               # Estilos globales + variables CSS
+├── index.html               # HTML principal
+└── favicon.svg              # Icono personalizado
+```
 
-- **Nombre:** Franco Lapalma
-- **Curso:** Desarrollo con Angular
-- **Módulo:** 1 - Unidad 1: conociendo angular
-- **Fecha:** Septiembre 2026
+## 📡 API Utilizada
 
-## Bibliografía y Fuentes
+**Rick and Morty API** — `https://rickandmortyapi.com/`
 
-### Libros
-- Freeman, A. *Pro Angular 9*. 6ª ed. Apress; 2020.
+- **Documentación**: https://rickandmortyapi.com/documentation
+- **Endpoints usados**:
+  - `GET /character` — Listado paginado de personajes
+  - `GET /character/:id` — Detalle de personaje
+  - `GET /episode/:id` — Detalle de episodios
+- **Ventajas**: Gratuita, sin autenticación, CORS habilitado, datos ricos
 
-### Documentación Oficial
-- Angular. (s.f.). **Welcome to the Angular tutorial**. https://angular.dev/tutorials/learn-angular
-- Angular. (s.f.). **The Angular CLI**. https://angular.dev/tools/cli
-- Angular. (s.f.). **Anatomy of a component**. https://angular.dev/guide/components
+## 🛠️ Tecnologías
 
-### Imágenes
-- Logo Angular: Creado para este proyecto (SVG simple en `src/assets/angular-logo.svg`)
+| Tecnología | Versión | Uso |
+|------------|---------|-----|
+| Angular | 18.2+ | Framework principal (standalone components) |
+| TypeScript | 5.4+ | Tipado estático |
+| RxJS | 7.8+ | Programación reactiva |
+| Angular Router | 18.2+ | Navegación SPA |
+| HttpClient | 18.2+ | Peticiones HTTP |
+| CSS Moderno | - | Grid, Flexbox, Custom Properties, Animaciones |
 
-## Licencia
+## 📱 Responsive Design
 
-Este proyecto es solo para fines educativos como parte del curso "Conociendo Angular".
+| Breakpoint | Layout |
+|------------|--------|
+| < 480px | Mobile - Stack vertical, navegación compacta |
+| 480px - 768px | Tablet - Grid 2 columnas, sidebar colapsable |
+| 768px - 1024px | Desktop pequeño - Grid 3-4 columnas |
+| > 1024px | Desktop - Layout completo con sidebar fija |
+
+## ♿ Accesibilidad
+
+- Semántica HTML5 correcta (`header`, `nav`, `main`, `section`, `article`, `footer`)
+- `routerLink` para navegación interna (no `<a href>`)
+- `aria-label` en iconos y botones sin texto visible
+- `aria-describedby` en campos de formulario con errores
+- Contraste de colores ≥ 4.5:1 (WCAG AA)
+- Navegación completa por teclado (Tab, Enter, Escape)
+- `focus-visible` visible en todos los elementos interactivos
+- `prefers-reduced-motion` respetado
+
+## 📝 Licencia
+
+Proyecto educativo — Trabajo Práctico Final de Angular.
+No afiliado oficialmente con Adult Swim ni Rick and Morty.
+Datos proporcionados por [Rick and Morty API](https://rickandmortyapi.com/).
+
+---
+
+**Desarrollado con 💚 usando Angular 18+**
